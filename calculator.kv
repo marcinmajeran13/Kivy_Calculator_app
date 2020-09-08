@@ -12,13 +12,19 @@ WindowManager:
     FloatLayout:
         Label:
             pos_hint: {'x':0, 'top':1.4}
-            text: 'Welcome to Calculator App by Gac'
+            text: 'Welcome to Calculator App by Marcin Majeran'
             size: self.texture_size
-            font_size: '32dp'
+            font_size: '28dp'
+            font_name: 'RobotoMono-Regular'
             color: utils.get_color_from_hex('#ff6726')
 
+        Image:
+            source: 'Calculator-icon.png'
+            pos_hint: {'x':0.25, 'top':0.8}
+            size_hint: 0.5, 0.5
+
         Button:
-            pos_hint: {'x':0.25, 'top':0.5}
+            pos_hint: {'x':0.25, 'top':0.25}
             text: 'START'
             size_hint: 0.5, 0.1
             color: utils.get_color_from_hex('#ff6726')
@@ -76,7 +82,8 @@ WindowManager:
                 text: '%'
                 on_release:
                     root.check_error()
-                    root.the_text += '%'
+                    root.calculation()
+                    root.the_text = str(float(root.the_text)/100)
 
             Button:
                 text: '/'
