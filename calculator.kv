@@ -11,16 +11,32 @@ WindowManager:
 
     FloatLayout:
         Label:
-            pos_hint: {'x':0, 'top':1.4}
-            text: 'Welcome to Calculator App by Marcin Majeran'
+            pos_hint: {'x':0.05, 'top':1.4}
+            text: 'Welcome to  '
             size: self.texture_size
             font_size: '28dp'
             font_name: 'RobotoMono-Regular'
             color: utils.get_color_from_hex('#ff6726')
 
+        Label:
+            pos_hint: {'x':0, 'top':1.3}
+            text: 'Calculator App'
+            size: self.texture_size
+            font_size: '28dp'
+            font_name: 'RobotoMono-Regular'
+            color: utils.get_color_from_hex('#ff6726')
+
+        Label:
+            pos_hint: {'x':0, 'top':1.2}
+            text: 'by Marcin Majeran'
+            size: self.texture_size
+            font_size: '16dp'
+            font_name: 'RobotoMono-Regular'
+            color: utils.get_color_from_hex('#ff6726')
+
         Image:
             source: 'Calculator-icon.png'
-            pos_hint: {'x':0.25, 'top':0.8}
+            pos_hint: {'x':0.25, 'top':0.7}
             size_hint: 0.5, 0.5
 
         Button:
@@ -200,7 +216,7 @@ WindowManager:
                     root.calculation()
 
 <Button>
-    font_size: 28
+    font_size: 36
 
 
 
