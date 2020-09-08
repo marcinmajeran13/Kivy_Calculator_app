@@ -40,6 +40,8 @@ builder = Builder.load_file('calculator.kv')
 
 
 class CalculatorApp(App):
+    Window.size = (300, 100)
+
     def build(self):
         return builder
 
