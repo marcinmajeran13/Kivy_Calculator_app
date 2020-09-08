@@ -24,7 +24,7 @@ class Rootwi(BoxLayout, Screen):
     def calculation(self):
         try:
             self.the_text = str(eval(self.the_text))
-        except:
+        except (ValueError, SyntaxError, TypeError, NameError):
             self.the_text = 'error'
 
     def check_error(self):
@@ -34,7 +34,7 @@ class Rootwi(BoxLayout, Screen):
     def percentage(self):
         try:
             self.the_text = str(float(self.the_text)/100)
-        except:
+        except (ValueError, SyntaxError, TypeError, NameError):
             self.the_text = 'error'
 
 
