@@ -1,0 +1,200 @@
+#:import utils kivy.utils
+
+WindowManager:
+    WelcomeWindow:
+
+    Rootwi:
+
+
+<WelcomeWindow>:
+    name: 'welcome'
+
+    FloatLayout:
+        Label:
+            pos_hint: {'x':0, 'top':1.4}
+            text: 'Welcome to Calculator App by Gac'
+            size: self.texture_size
+            font_size: '32dp'
+            color: utils.get_color_from_hex('#ff6726')
+
+        Button:
+            pos_hint: {'x':0.25, 'top':0.5}
+            text: 'START'
+            size_hint: 0.5, 0.1
+            color: utils.get_color_from_hex('#ff6726')
+            font_size: '25dp'
+            bold: True
+            canvas.before:
+                Color:
+                    rgba: 1, .4, .14, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+            on_release:
+                app.root.current = 'main'
+                root.manager.transition.direction = 'up'
+
+
+
+<Rootwi>:
+    name: 'main'
+
+    GridLayout:
+        cols: 1
+        rows: 2
+
+
+        BoxLayout:
+            size_hint: 1, 0.4
+            TextInput:
+                text: root.the_text
+                on_focus: if root.the_text == 'error': root.the_text = ''
+                multiline: False
+                font_size: 64
+                background_normal: ''
+                background_color: utils.get_color_from_hex('#454343')
+                foreground_color: utils.get_color_from_hex('#ffffff')
+
+
+        GridLayout:
+            cols: 4
+            rows: 5
+
+            Button:
+                text: 'AC'
+                bold: True
+                on_release:
+                    root.the_text = ''
+
+            Button:
+                text: '<-'
+                on_release:
+                    root.check_error()
+                    root.the_text = root.the_text[0:-1]
+
+            Button:
+                text: '%'
+                on_release:
+                    root.check_error()
+                    root.the_text += '%'
+
+            Button:
+                text: '/'
+                color: utils.get_color_from_hex('#ff6726')
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '7'
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '8'
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '9'
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '*'
+                color: utils.get_color_from_hex('#ff6726')
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '4'
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '5'
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '6'
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '-'
+                color: utils.get_color_from_hex('#ff6726')
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '1'
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '2'
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '3'
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '+'
+                color: utils.get_color_from_hex('#ff6726')
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '.'
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            Button:
+                text: '0'
+                on_release:
+                    root.check_error()
+                    root.the_text += self.text
+
+            GridLayout
+                cols: 2
+                Button:
+                    text: '('
+                    on_release:
+                        root.check_error()
+                        root.the_text += self.text
+                Button:
+                    text: ')'
+                    on_release:
+                        root.check_error()
+                        root.the_text += self.text
+
+            Button:
+                text: '='
+                background_normal: ''
+                background_color: utils.get_color_from_hex('#ff6726')
+                on_release:
+                    root.calculation()
+
+<Button>
+    font_size: 28
+
+
+
+
