@@ -72,7 +72,7 @@ WindowManager:
                 text: root.the_text
                 on_focus: if root.the_text == 'error': root.the_text = ''
                 multiline: False
-                font_size: 96
+                font_size: 136
                 background_normal: ''
                 background_color: utils.get_color_from_hex('#454343')
                 foreground_color: utils.get_color_from_hex('#ffffff')
@@ -99,7 +99,7 @@ WindowManager:
                 on_release:
                     root.check_error()
                     root.calculation()
-                    root.the_text = str(float(root.the_text)/100)
+
 
             Button:
                 text: '/'

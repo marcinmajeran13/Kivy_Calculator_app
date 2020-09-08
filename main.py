@@ -31,6 +31,12 @@ class Rootwi(BoxLayout, Screen):
         if self.the_text == 'error':
             self.the_text = ''
 
+    def percentage(self):
+        try:
+            self.the_text = str(float(self.the_text)/100)
+        except:
+            self.the_text = 'error'
+
 
 class WindowManager(ScreenManager):
     pass
