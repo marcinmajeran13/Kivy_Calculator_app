@@ -71,8 +71,9 @@ WindowManager:
             TextInput:
                 text: root.the_text
                 on_focus: if root.the_text == 'error': root.the_text = ''
+                keyboard_mode: 'managed'
                 multiline: False
-                font_size: 136
+                font_size: 164
                 background_normal: ''
                 background_color: utils.get_color_from_hex('#454343')
                 foreground_color: utils.get_color_from_hex('#ffffff')
